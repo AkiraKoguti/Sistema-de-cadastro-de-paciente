@@ -12,7 +12,7 @@ Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastra
 Python instalado na maquina
 Banco de dados - SQLITE3
 
->## 🛠️Tecnologias utilizadas:
+# 🛠️Tecnologias utilizadas:
 
 > Editor de código: Visual Studio Code
 Linguagem: Python
