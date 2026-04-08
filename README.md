@@ -18,7 +18,7 @@ Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastra
 - Linguagem: Python
 - Bibliotecas:
 
-# Versões:
+# Versão:
 
 - Python 3.14.3
 
