@@ -22,5 +22,5 @@ Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastra
 
 - Python 3.14.3
 
-# Autores:
+# Autor:
 - Erick Akira Koguti Soprani
