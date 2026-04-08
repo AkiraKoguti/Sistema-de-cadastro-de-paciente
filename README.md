@@ -9,18 +9,18 @@ Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastra
 
 # 📋Pré-requisitos do sistema:
 
-Python instalado na maquina
-Banco de dados - SQLITE3
+- Python instalado na maquina
+- Banco de dados - SQLITE3
 
 # 🛠️Tecnologias utilizadas:
 
-> Editor de código: Visual Studio Code
-Linguagem: Python
-Bibliotecas:
+- Editor de código: Visual Studio Code
+- Linguagem: Python
+- Bibliotecas:
 
 ## Versões:
 
 > Python 3.14.3
 
 ## Autores:
-Erick Akira Koguti Soprani
+> Erick Akira Koguti Soprani
