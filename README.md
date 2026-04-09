@@ -1,4 +1,4 @@
-# Sistema-de-cadastro-de-paciente
+# Sistema de cadastro de pacientes
 
 Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastrar o nome, idade, peso e altura do paciente podendo editar ou excluir registros dos pacientes. O sistema calculará o IMC de cada paciente registrado baseado nos dados fornecidos.
 
