@@ -5,12 +5,12 @@ Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastra
 # 🔌Como fazer funcionar na sua máquina:
 
 - Instale Python na sua máquina;
-- Windowns a partir do 10
+- Windowns a partir do 10.
 
 # 📋Pré-requisitos do sistema:
 
-- Python instalado na maquina
-- Banco de dados - SQLITE3
+- Python instalado na maquina;
+- Banco de dados - SQLITE3.
 
 # 🛠️Tecnologias utilizadas:
 
