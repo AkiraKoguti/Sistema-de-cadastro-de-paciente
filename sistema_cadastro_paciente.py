@@ -8,10 +8,10 @@ def conectar():
 
 # CREATE READ UPDATE DELETE
 
-# banco de dados
+# Banco de Dados
 def criar_tabela():
     conn = conectar()
-    c = conn.cursor() # digitar sql num arquivo python
+    c = conn.cursor()
     c.execute('''
                CREATE TABLE IF NOT EXISTS usuarios(
              
@@ -29,14 +29,13 @@ def criar_tabela():
 
 
 # CREATE CRUD
-
 def inserir_usuario():
     cpf   =  entry_cpf.get().strip()
     nome  =  entry_nome.get().strip()
     idade =  entry_idade.get().strip()
     peso = float(entry_peso.get().strip())
     altura = float(entry_altura.get().strip())
-    imc = round((peso / altura**2), 2)
+    imc = round((peso // altura**2), 2)
     if imc < 18:
         tipo = 'Abaixo do normal'
     elif imc > 18 and imc < 25:
@@ -46,24 +45,21 @@ def inserir_usuario():
 
    
     if cpf and nome and idade and peso and altura and imc and tipo:
-    #    try:
-            conn  =  conectar()
-            c = conn.cursor()
-            c.execute('INSERT INTO usuarios (id, nome, idade, peso, altura, imc, tipo_imc) VALUES (?,?,?,?,?,?,?)', (cpf, nome, idade, peso, altura, imc, tipo))
-            conn.commit()
-            conn.close()
-            messagebox.showinfo('Dados','DADOS INSERIDOS COM SUCESSO!')
-            mostra_usuario()
-            entry_cpf.delete(0, tk.END)
-            entry_nome.delete(0, tk.END)
-            entry_idade.delete(0, tk.END)
-            entry_peso.delete(0, tk.END)
-            entry_altura.delete(0, tk.END)
-    #    except sqlite3.IntegrityError:
-    #         messagebox.showerror('Erro', 'O DADO JA EXISTE')
-
+        conn  =  conectar()
+        c = conn.cursor()
+        c.execute('INSERT INTO usuarios (id, nome, idade, peso, altura, imc, tipo_imc) VALUES (?,?,?,?,?,?,?)', (cpf, nome, idade, peso, altura, imc, tipo))
+        conn.commit()
+        conn.close()
+        messagebox.showinfo('Dados','DADOS INSERIDOS COM SUCESSO!')
+        mostra_usuario()
+        entry_cpf.delete(0, tk.END)
+        entry_nome.delete(0, tk.END)
+        entry_idade.delete(0, tk.END)
+        entry_peso.delete(0, tk.END)
+        entry_altura.delete(0, tk.END)
     else:
         messagebox.showwarning('Dado', 'INSIRA TODOS OS DADOS')
+
 
 
 def mostra_usuario():
@@ -78,6 +74,7 @@ def mostra_usuario():
     conn.close()    
 
 
+
 # ATUALIZAR
 def editar():
     selecao = tree.selection()
@@ -87,7 +84,7 @@ def editar():
         novo_idade =  entry_idade.get()
         novo_peso = float(entry_peso.get())
         novo_altura = float(entry_altura.get())
-        novo_imc = round((novo_peso / novo_altura**2),2)
+        novo_imc = round((novo_peso // novo_altura**2),2)
         if novo_imc < 18:
             novo_tipo = 'Abaixo do normal'
         elif novo_imc > 18 and novo_imc < 25:
@@ -116,10 +113,7 @@ def editar():
 
 
 
-
-
 # DELETAR
-
 def deletar_usuario():
     selecao = tree.selection()
     if selecao:
@@ -134,7 +128,6 @@ def deletar_usuario():
     else:
         messagebox.showerror('Dados', 'ERRO AO DELEETAR OS DADOS!')    
      
-   
 
 
 # interface grafica
@@ -157,70 +150,58 @@ main_frame.pack(fill=tk.BOTH, expand=True)
 
 
 # widgets -  elementos  
-
 titulo = ttk.Label(main_frame, text='Sistema de Cadastro', font=('Segoe UI', 10, 'bold'))
 titulo.grid(row=0, columnspan=2,pady=(0,15), sticky='w')
-###############################
 
 input_frame =  ttk.LabelFrame(main_frame, text='DADOS DO USUARIO', padding=10)
 input_frame.grid(row=1,column= 0, columnspan = 2, sticky='ew', pady=(0,15))
 
+
 # textos para direcionar
 # CPF
 ttk.Label(input_frame, text='CPF').grid(row=0, column=0, padx=(0,10), pady=5, sticky='e')
-
 entry_cpf = ttk.Entry(input_frame, width=30)
 entry_cpf.grid(row=0, column=1, padx=(0,20), pady=5, sticky='w')
 
-# textos para direcionar
 # NOME
 ttk.Label(input_frame, text='NOME').grid(row=1, column=0, padx=(0,10), pady=5, sticky='e')
-
 entry_nome = ttk.Entry(input_frame, width=30)
 entry_nome.grid(row=1, column=1, padx=(0,20), pady=5, sticky='w')
 
-
-# textos para direcionar
 # IDADE
 ttk.Label(input_frame, text='IDADE').grid(row=2, column=0, padx=(0,10), pady=5, sticky='e')
-
 entry_idade = ttk.Entry(input_frame, width=30)
 entry_idade.grid(row=2, column=1, padx=(0,20), pady=5, sticky='w')
 
-# textos para direcionar
 # PESO
 ttk.Label(input_frame, text='PESO').grid(row=3, column=0, padx=(0,10), pady=5, sticky='e')
-
 entry_peso = ttk.Entry(input_frame, width=30)
 entry_peso.grid(row=3, column=1, padx=(0,20), pady=5, sticky='w')
 
-# textos para direcionar
 # ALTURA
 ttk.Label(input_frame, text='ALTURA').grid(row=4, column=0, padx=(0,10), pady=5, sticky='e')
-
 entry_altura = ttk.Entry(input_frame, width=30)
 entry_altura.grid(row=4, column=1, padx=(0,20), pady=5, sticky='w')
 
 
-# botões
+# BOTÕES
 btn_frame = ttk.Frame(main_frame)
 btn_frame.grid(row=2, column=0, columnspan=2, pady=(0,15), sticky='ew')
 
-
+# SALVAR
 btn_salvar = ttk.Button(btn_frame, text='SALVAR', command=inserir_usuario)
 btn_salvar.pack(side = tk.LEFT, padx=5 )
 
+# ATUALIZAR
 btn_atualizar = ttk.Button(btn_frame, text='ATUALIZAR', command=editar)
 btn_atualizar.pack(side = tk.LEFT, padx=5 )
 
+# DELETAR
 btn_deletar = ttk.Button(btn_frame, text='DELETAR', command= deletar_usuario)
 btn_deletar.pack(side = tk.LEFT, padx=5 )
 
-# btn_limpar = ttk.Button(btn_frame, text='LIMPAR')
-# btn_limpar.pack(side = tk.LEFT, padx=5 )
 
 # Treeview - vizualizar os dados
-
 tree_frame = ttk.Frame(main_frame)
 tree_frame.grid(row=3, column=0, columnspan=2, sticky='nsew')
 
@@ -237,10 +218,11 @@ for col in columns:
     tree.column(col, width=180, anchor='center')
 
 # scrolbar -  barra rolagem
-
 scrollbar = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL, command=tree.yview)
 tree.configure(yscrollcommand=scrollbar.set)
 scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+
 
 criar_tabela()
 mostra_usuario()
