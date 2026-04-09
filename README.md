@@ -16,7 +16,7 @@ Sistema de cadastro de paciente para uma clinica, que permite o usuario cadastra
 
 - Editor de código: Visual Studio Code
 - Linguagem: Python
-- Bibliotecas:
+- Bibliotecas: SQLITE3 - Tkinter
 
 # Versão:
 
